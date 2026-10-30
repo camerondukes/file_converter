@@ -1,0 +1,5 @@
+node_modules/
+dist/
+public/ffmpeg/
+test-results/
+playwright-report/

@@ -1,0 +1,23 @@
+{
+  "name": "file-converter",
+  "version": "1.0.0",
+  "description": "Extensible browser-based file converter",
+  "scripts": {
+    "dev": "node scripts/copy-engine.mjs && vite",
+    "build": "node scripts/copy-engine.mjs && vite build",
+    "preview": "vite preview",
+    "test": "npm run build && playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@ffmpeg/core": "^0.12.10",
+    "@ffmpeg/ffmpeg": "^0.12.15"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "vite": "^8.3.5"
+  }
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4f46e5">
+  <meta name="description" content="Convert files privately in your browser.">
+  <title>File Converter</title>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card" aria-labelledby="title">
+      <header>
+        <div class="eyebrow">FILE UTILITIES</div>
+        <h1 id="title">File Converter</h1>
+        <p class="sub">Choose your formats, add files, and convert.</p>
+      </header>
+      <div class="content">
+        <div class="format-bar">
+          <div class="format-field">
+            <label for="fromFormat">From</label>
+            <select id="fromFormat"></select>
+          </div>
+          <span class="format-arrow" aria-hidden="true">→</span>
+          <div class="format-field">
+            <label for="toFormat">To</label>
+            <select id="toFormat"></select>
+          </div>
+          <span class="format-detail" id="formatDetail"></span>
+        </div>
+        <div class="drop-zone" id="dropZone">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M12 16V3m-5 5 5-5 5 5M4 15v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/>
+          </svg>
+          <h2 id="dropTitle">Drop your files here</h2>
+          <p>Choose one file or add a whole batch.</p>
+          <button class="btn primary" id="browse">Browse Files</button>
+          <input id="fileInput" type="file" multiple hidden>
+          <small id="fileHint"></small>
+        </div>
+        <div class="queue-heading">
+          <h2>Conversion queue <span id="fileCount">0</span></h2>
+          <span class="muted" id="queueSize">No files added</span>
+        </div>
+        <p class="empty" id="empty">Your files will appear here, ready to convert.</p>
+        <ul id="fileList" aria-label="Files to convert"></ul>
+        <div id="globalError" class="error-banner" role="alert" hidden></div>
+        <div class="actions">
+          <button class="btn danger" id="clear" disabled>Clear All Files</button>
+          <div>
+            <button class="btn" id="cancel" hidden>Cancel Batch</button>
+            <button class="btn success" id="convert" disabled>Convert</button>
+          </div>
+        </div>
+        <p id="batchStatus" class="batch-status" role="status">Ready when you are.</p>
+      </div>
+    </section>
+    <div class="notes">
+      <div><strong>Private by design</strong><p>Your files are processed locally. No accounts or file uploads.</p></div>
+      <div><strong>Made for the browser</strong><p id="conversionNote"></p></div>
+    </div>
+    <footer>File Converter</footer>
+  </main>
+  <dialog id="previewDialog">
+    <div class="preview-heading">
+      <h2 id="previewTitle">Preview</h2>
+      <button class="btn" id="closePreview">Close</button>
+    </div>
+    <video id="previewVideo" controls playsinline></video>
+  </dialog>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
